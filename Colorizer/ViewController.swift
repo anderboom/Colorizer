@@ -32,25 +32,28 @@ class ViewController: UIViewController {
             timer = nil
             backGround.backgroundColor = UIColor.lightGray
             }
-       
-    }
+       }
+    
+    func timerSheduler() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerRun), userInfo: nil, repeats: true)
+        counter = 6    }
     
     @IBAction func redButtonPressed(_ sender: Any) {
+        timer?.invalidate();
         backGround.backgroundColor = UIColor.red
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerRun), userInfo: nil, repeats: true)
-        counter = 6
+        timerSheduler()
     }
     
     @IBAction func blueButtonPressed(_ sender: Any) {
+        timer?.invalidate();
         backGround.backgroundColor = UIColor.blue
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerRun), userInfo: nil, repeats: true)
-        counter = 6
+        timerSheduler()
     }
     
     @IBAction func greenButtonPressed(_ sender: Any) {
+        timer?.invalidate();
         backGround.backgroundColor = UIColor.green
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerRun), userInfo: nil, repeats: true)
-        counter = 6
+        timerSheduler()
     }
 }
 
